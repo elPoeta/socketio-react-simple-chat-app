@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
+import { END_POINT } from './utils/urls';
 import './App.css';
 
 class App extends Component {
@@ -8,7 +9,8 @@ class App extends Component {
     this.state = {
 
     };
-    this.socket = io.connect('http://localhost:5000');
+    console.log('ENDPOINT ', END_POINT)
+    this.socket = io.connect(END_POINT);
   }
 
   render() {
