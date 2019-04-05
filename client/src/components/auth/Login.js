@@ -14,7 +14,11 @@ class Login extends Component {
         e.preventDefault();
         if (this.state.user) {
             console.log('submin ', this.state.user)
-            this.props.socket.emit('set user', { user: this.state.user })
+            this.props.socket.emit('new user', { user: this.state.user }, callback => {
+                if (callback) {
+                    console.log('succes')
+                }
+            });
         }
     }
     render() {

@@ -6,17 +6,24 @@ module.exports = io => {
         console.log(`Connected: ${connections.length} connections`);
         // console.log(`Users Connected: ${users.length} users`);
         socket.on('disconnect', () => {
-            //   users.splice(users.indexOf(socket.userName), 1);
+            users.splice(users.indexOf(socket.userName), 1);
             connections.splice(connections.indexOf(socket), 1);
             // updateUsers();
             console.log(`Disconnected: ${connections.length} connections`);
             // console.log(`User Disconnected: ${users.length} users`);
 
         });
-        socket.on('set user', data => {
-            console.log('data :: ', data);
-            io.emit('get user', data);
+        socket.on('new user', (user, callback) => {
+            console.log('data :: ', user);
+            callback(true);
+            io.emit('get user', user);
+            socket.userName = user;
+            users.push(socket.userName);
+            updateUsers();
         });
+        function updateUsers() {
+            io.sockets.emit('get users', users)
+        }
         socket.on('send message', data => {
             io.sockets.emit('recive message', data);
         });
