@@ -3,10 +3,7 @@ const path = require('path');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
-io.configure(function () {
-    io.set("transports", ["xhr-polling"]);
-    io.set("polling duration", 10);
-});
+
 //require("./startUp/db")();
 require("./startUp/parser")(app);
 require("./startUp/routes")(app);
