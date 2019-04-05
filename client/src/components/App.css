@@ -4,13 +4,18 @@
 .msg-panel{
   border : 1px solid #ccc;
   border-radius: .5em;
-  min-height: 400px;
+  height: 400px;
   width: 40%;
   margin: 10px auto;
-  background-color:#ddd;
+  background-color:#fff;
   padding: .4em; 
+  overflow: auto;
+  text-align: left;
 }
-
+.msg-panel:focus{
+  border: 1px solid #2aaffc;
+  border-radius: 0em;
+}
 .send-button{
   border : none;
   background: transparent;
@@ -25,4 +30,8 @@
 #send{
   padding:6px;
   width:20%;
+}
+.msg-panel ul li{
+  list-style: none;
+  padding: 3px;
 }

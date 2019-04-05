@@ -1,0 +1,20 @@
+.chat-panel{
+    border : 1px solid #ccc;
+    border-radius: .5em;
+    height: 400px;
+    margin: 0 auto;
+    width: 98%;
+    background-color:#fff;
+    padding: 3px; 
+    overflow: auto;
+    text-align: left;
+  }
+  .chat-panel:focus{
+    border: 1px solid #2aaffc;
+    border-radius: 0em;
+  }
+
+  .chat-panel ul li{
+      list-style: none;
+      text-align: left;
+  }

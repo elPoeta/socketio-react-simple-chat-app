@@ -13,9 +13,16 @@ module.exports = io => {
             // console.log(`User Disconnected: ${users.length} users`);
 
         });
-        socket.on('send', data => {
-              io.sockets.emit('recive message', {msg: data});  
+        socket.on('set user', data => {
+            console.log('data :: ', data);
+            io.emit('get user', data);
         });
+        socket.on('send message', data => {
+            io.sockets.emit('recive message', data);
+        });
+        // socket.on('send', data => {
+        //     io.sockets.emit('recive message', {msg: data});  
+        // });
         /*   socket.on('send message', data => {
               io.emit('new message', { msg: data, user: socket.userName });
           });

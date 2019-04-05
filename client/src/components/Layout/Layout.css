@@ -1,0 +1,26 @@
+.container{
+    display:grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    width: 98%;
+    grid-gap: 5px;
+    padding: .3em;
+    justify-content: center;
+    align-content: center;
+    border: 1px solid #ccc; 
+
+}
+.container h1{
+    color: #444;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+@media  (min-width:700px){
+    .container{
+        width: 60%;
+    }
+    .container h1{
+        font-size: 2em;
+    }
+}
